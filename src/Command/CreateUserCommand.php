@@ -25,18 +25,20 @@ class CreateUserCommand extends Command
     {
         $io = new SymfonyStyle($input, $output);
 
+        $firstName = $io->ask('Firstname');
         $email = $io->ask('Email');
 
         $user = new User();
         $token = bin2hex(random_bytes(32));
 
+        $user->setFirstname($firstName);
         $user->setEmail($email);
         $user->setToken($token);
 
         $this->em->persist($user);
         $this->em->flush();
 
-        $io->success('User '.$email.' created successfully!');
+        $io->success('User '.$firstName.' with email '.$email.' created successfully!');
 
         return Command::SUCCESS;
     }

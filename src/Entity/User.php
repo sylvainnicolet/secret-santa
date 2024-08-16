@@ -32,6 +32,9 @@ class User
     #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $submittedAt = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $firstname = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -105,6 +108,18 @@ class User
     public function setSubmittedAt(?\DateTimeImmutable $submittedAt): static
     {
         $this->submittedAt = $submittedAt;
+
+        return $this;
+    }
+
+    public function getFirstname(): ?string
+    {
+        return $this->firstname;
+    }
+
+    public function setFirstname(string $firstname): static
+    {
+        $this->firstname = $firstname;
 
         return $this;
     }

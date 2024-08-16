@@ -19,7 +19,7 @@ class EmailService
             ->from('no-reply@example.com') // TODO: Change this email
             ->to($user->getEmail())
             ->subject('Remplis ta liste Noël !') // TODO: Change this subject
-            ->text('Bonjour '.$user->getEmail().', remplis ta liste de Noël en cliquant sur ce lien : http://localhost:8000/liste') // TODO: Change this message
+            ->text('Bonjour '.$user->getFirstname().', remplis ta liste de Noël en cliquant sur ce lien : http://localhost:8000/liste') // TODO: Change this message
         ;
 
         $this->mailer->send($email);
