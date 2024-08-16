@@ -12,7 +12,7 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 
 #[AsCommand(
     name: 'app:create:user',
-    description: 'Add a short description for your command',
+    description: 'Create a new user',
 )]
 class CreateUserCommand extends Command
 {
