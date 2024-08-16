@@ -15,6 +15,9 @@ class User
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    private ?string $firstname = null;
+
+    #[ORM\Column(length: 255)]
     private ?string $email = null;
 
     #[ORM\Column(length: 255)]
@@ -32,12 +35,21 @@ class User
     #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $submittedAt = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $firstname = null;
-
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getFirstname(): ?string
+    {
+        return $this->firstname;
+    }
+
+    public function setFirstname(string $firstname): static
+    {
+        $this->firstname = $firstname;
+
+        return $this;
     }
 
     public function getEmail(): ?string
@@ -108,18 +120,6 @@ class User
     public function setSubmittedAt(?\DateTimeImmutable $submittedAt): static
     {
         $this->submittedAt = $submittedAt;
-
-        return $this;
-    }
-
-    public function getFirstname(): ?string
-    {
-        return $this->firstname;
-    }
-
-    public function setFirstname(string $firstname): static
-    {
-        $this->firstname = $firstname;
 
         return $this;
     }
