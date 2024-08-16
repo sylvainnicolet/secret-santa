@@ -32,13 +32,18 @@ class UserFormController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->em->flush();
 
-            // TODO: Redirect to a "thank you" page
-            return $this->redirectToRoute('user_form');
+            return $this->redirectToRoute('thank_you');
         }
 
         return $this->render('user_form/index.html.twig', [
             'form' => $form,
             'user' => $user,
         ]);
+    }
+
+    #[Route('/thank-you', name: 'thank_you')]
+    public function thankYou(): Response
+    {
+        return $this->render('user_form/thank_you.html.twig');
     }
 }
