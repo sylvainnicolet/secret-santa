@@ -3,18 +3,12 @@
 {% block title %}Hello UserFormController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>/Users/hescsen/Sites/secret-santa/src/Controller/UserFormController.php</code></li>
-        <li>Your template at <code>/Users/hescsen/Sites/secret-santa/templates/user_form/index.html.twig</code></li>
-    </ul>
-</div>
+	<h1 class="mb-4">Formulaire de Noël</h1>
+	<p>Oh oh oh ! Bonjour <span class="text-decoration-underline">{{ user.firstname }}</span> ! C’est moi, le Père Noël, et j’ai besoin de ton aide !</p>
+	<p>Pour m’assurer que mes lutins préparent les meilleurs cadeaux, je te demande de choisir tes <span class="text-decoration-underline">3 envies</span> de Noël.</p>
+	<p>N’oublie pas, même les lutins doivent s’organiser ! Ho ho ho, à toi de jouer ! 🎅🎁</p>
+	
+	<div class="mt-5">
+		{{ form(form) }}
+	</div>
 {% endblock %}
