@@ -35,6 +35,9 @@ class User
     #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $submittedAt = null;
 
+    #[ORM\OneToOne(targetEntity: self::class, cascade: ['persist', 'remove'])]
+    private ?self $drawnUser = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -120,6 +123,18 @@ class User
     public function setSubmittedAt(?\DateTimeImmutable $submittedAt): static
     {
         $this->submittedAt = $submittedAt;
+
+        return $this;
+    }
+
+    public function getDrawnUser(): ?self
+    {
+        return $this->drawnUser;
+    }
+
+    public function setDrawnUser(?self $drawnUser): static
+    {
+        $this->drawnUser = $drawnUser;
 
         return $this;
     }

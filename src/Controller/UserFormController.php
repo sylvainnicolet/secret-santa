@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Form\UserFormType;
 use App\Repository\UserRepository;
+use App\Service\UserDrawService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -14,7 +15,8 @@ class UserFormController extends AbstractController
 {
     public function __construct(
         private readonly EntityManagerInterface $em,
-        private readonly UserRepository $userRepository
+        private readonly UserRepository $userRepository,
+        private readonly UserDrawService $userDrawService,
     ) {
     }
 
@@ -31,7 +33,7 @@ class UserFormController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->em->flush();
-
+            $this->userDrawService->drawUser();
             return $this->redirectToRoute('thank_you');
         }
 

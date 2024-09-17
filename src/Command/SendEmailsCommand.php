@@ -29,7 +29,7 @@ class SendEmailsCommand extends Command
 
         $users = $this->userRepository->findAll();
         foreach ($users as $user) {
-            $this->emailService->sendEmail($user);
+            $this->emailService->sendEmailDoYourList($user);
             $io->success('Email successfully sent to '.$user->getEmail());
         }
 
