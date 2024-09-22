@@ -53,6 +53,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?bool $enable = false;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $plainPassword = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -186,5 +189,22 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->enable = $enable;
 
         return $this;
+    }
+
+    public function getPlainPassword(): ?string
+    {
+        return $this->plainPassword;
+    }
+
+    public function setPlainPassword(?string $plainPassword): static
+    {
+        $this->plainPassword = $plainPassword;
+
+        return $this;
+    }
+
+    public function isAdmin(): bool
+    {
+        return in_array(self::ROLE_ADMIN, $this->getRoles(), true);
     }
 }
