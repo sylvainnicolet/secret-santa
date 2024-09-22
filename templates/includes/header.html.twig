@@ -23,14 +23,14 @@
 			<div class="collapse navbar-collapse">
 				<!-- Left side -->
 				<div class="navbar-nav">
-					<a class="nav-link active" href="#">Présentation</a>
+					<a class="nav-link" href="{{ path('homepage') }}/#presentation">Présentation</a>
 					<a class="nav-link" href="{{ path('homepage') }}/#pricing">Prix</a>
 				</div>
 				
 				<!-- Right side -->
 				<div class="navbar-nav ms-auto">
 					<a class="nav-link" href="#">Se connecter</a>
-					<a class="nav-link" href="#">Demander un compte</a>
+					<a class="nav-link" href="{{ path('user_request') }}">Demander un compte</a>
 				</div>
 			</div>
 		</div>
