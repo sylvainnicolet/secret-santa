@@ -1,0 +1,6 @@
+@import "bootstrap";
+
+.required:after {
+	content:"*";
+	margin-left: 0.1rem;
+}

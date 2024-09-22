@@ -1,0 +1,14 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/variables-dark";
+
+$custom-colors: (
+	"primary": #ed0b0b,
+	"light": #f4f4f4,
+);
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+// override color contrast
+$navbar-dark-color: $white;
+
+@import "~bootstrap/scss/bootstrap";

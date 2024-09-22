@@ -1,0 +1,38 @@
+{% extends 'layout_client.html.twig' %}
+
+{% block title %}Demande de compte{% endblock %}
+
+{% block content %}
+	<section class="bg-white">
+		<div class="container">
+			<div class="mb-5">
+				<h1>Demande de compte</h1>
+				<p>Veuillez remplir le formulaire ci-dessous pour demander un compte. Nous vous contacterons par WhatsApp dans les plus brefs délais.</p>
+			</div>
+			
+			{{ form_start(form) }}
+			<div class="row">
+				<div class="col-md-6">
+					{{ form_row(form.firstname) }}
+				</div>
+				<div class="col-md-6">
+					{{ form_row(form.lastname) }}
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					{{ form_row(form.phone) }}
+				</div>
+			</div>
+			{{ form_row(form.remark) }}
+			
+			<button type="submit" class="btn btn-primary mt-3">Demander un compte</button>
+			{{ form_rest(form) }}
+			{{ form_end(form) }}
+			
+			<div class="mt-4">
+				{% include 'includes/flash_message.html.twig' %}
+			</div>
+		</div>
+	</section>
+{% endblock %}
