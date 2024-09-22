@@ -38,8 +38,8 @@ class UserFormType extends AbstractType
             ->add('submit', SubmitType::class, [
                 'label' => 'J\'ai fait mes choix',
                 'attr' => [
-                    'class' => 'btn btn-primary mt-2',
-                    'onclick' => 'return confirm("Êtes-vous sûr d\'avoir fait vos choix ? Cela ne pourra plus être modifié car mes lutins ont beaucoup de travail cette année !")'],
+                    'class' => 'btn btn-danger mt-2 btn-outline-light',
+                    'onclick' => 'return confirm("Êtes-vous sûr d\'avoir fait vos choix ? Cela ne pourra plus être modifié car les lutins ont beaucoup de travail cette année !")'],
             ])
         ;
 

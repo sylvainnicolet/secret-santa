@@ -4,6 +4,7 @@ namespace App\Service;
 
 use App\Entity\User;
 use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Address;
 use Symfony\Component\Mime\Email;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
@@ -17,17 +18,14 @@ class EmailService
 
     public function sendEmailDoYourList(User $user): void
     {
-        $url = $this->urlGenerator->generate(
-            'user_form',
-            ['token' => $user->getToken()],
-            UrlGeneratorInterface::ABSOLUTE_URL
-        );
+        $url = 'https://santa.hescsen.com/form/'.$user->getToken();
 
         $email = (new Email())
-            ->from('no-reply@example.com') // TODO: Change this email
+            ->from(new Address('info@hescsen.com', 'Les lutins de la chocolaterie'))
             ->to($user->getEmail())
-            ->subject('Remplis ta liste Noël !') // TODO: Change this subject
-            ->text('Salut '.$user->getFirstname().', remplis ta liste de Noël en cliquant sur ce lien : '.$url)
+            ->subject('Remplis ta liste Noël ! 🎅🎄')
+            ->html('<p>Salut '.$user->getFirstname().', tu es invité.e à passer le réveillon de Noël le 24 au soir chez les lutins de la chocolaterie.</p>
+                <p>Clique sur ce lien pour en savoir plus : <a href="'.$url.'">En savoir plus</a></p>')
         ;
 
         $this->mailer->send($email);
@@ -41,19 +39,20 @@ class EmailService
         }
 
         $email = (new Email())
-            ->from('no-reply@example.com') // TODO: Change this email
+            ->from(new Address('info@hescsen.com', 'Les lutins de la chocolaterie'))
             ->to($user->getEmail())
-            ->subject('Le tirage au sort de Noël a eu lieu !') // TODO: Change this subject
+            ->subject('Le tirage au sort de Noël a eu lieu ! 🎅🎄')
             ->html('
                 <p>Salut ' . $user->getFirstname() . ',</p>
-                <p>Tu dois offrir un cadeau à ' . $drawnUser->getFirstname() . '.</p>
-                <p>Voici sa liste de Noël :</p>
+                <p>Voici le nom de ton lutin secret : ' . $drawnUser->getFirstname() . '</p>
+                <p>Choisis un cadeau parmi ses 3 souhaits :</p>
                 <ul>
                     <li>' . $drawnUser->getChoice1() . '</li>
                     <li>' . $drawnUser->getChoice2() . '</li>
                     <li>' . $drawnUser->getChoice3() . '</li>
                 </ul>
-                <p>À bientôt !</p>
+                <p>PS : Garde le secret ! 🤫🎄</p>
+                <p>Les lutins de la chocolaterie se réjouissent de te voir le 24 au soir pour la distribution des cadeaux.</p>
             ');
 
         $this->mailer->send($email);

@@ -3,12 +3,35 @@
 {% block title %}Formulaire de Noël{% endblock %}
 
 {% block body %}
-	<h1 class="mb-4">Formulaire de Noël</h1>
-	<p>Oh oh oh ! Bonjour <span class="text-decoration-underline">{{ user.firstname }}</span> ! C’est moi, le Père Noël, et j’ai besoin de ton aide !</p>
-	<p>Pour m’assurer que mes lutins préparent les meilleurs cadeaux, je te demande de choisir tes <span class="text-decoration-underline">3 envies</span> de Noël.</p>
-	<p>N’oublie pas, même les lutins doivent s’organiser ! Ho ho ho, à toi de jouer ! 🎅🎁</p>
-	
-	<div class="mt-5">
-		{{ form(form) }}
+	<div class="container text-white mt-4" style="max-width: 600px;">
+		<h1 class="mb-4 text-center">Liste du Père Noël 🎅</h1>
+		<div class="fs-5 text-center">
+			<p>
+				🎄✨ Oh oh oh ! Cher(e) {{ user.firstname }} tu es officiellement invités à célébrer le réveillon de Noël chez les
+				lutins de la Chocolaterie ! 🎅🍫</p>
+			<p>
+				Pour entrer dans l'atelier magique, il te suffit de partager avec nous tes trois souhaits de cadeaux, mais
+				attention : chaque vœu doit rester sous la barre des 50 CHF ! 🎁💸
+			</p>
+			<p>
+				Nous vous attendons pour une soirée gourmande, pleine de rires, de chocolat et de magie de Noël. Alors, sortez
+				vos plus beaux bonnets et préparez-vous à une soirée inoubliable&nbsp;!
+			</p>
+			<p>
+				À très vite sous le sapin ! 🎄🎅🍫
+			</p>
+			<p>
+				PS : Ne révèle à personne le nom de ton lutin secret, c’est une surprise ! 🤫
+			</p>
+			
+			<p>Tino Rossi peut t'aider à te mettre dans l'ambiance si besoin. 🎶🎅</p>
+			<audio autoplay loop controls>
+				<source src="{{ asset('music/music.mp3') }}" type="audio/mp3">
+			</audio>
+		</div>
+		
+		<div class="mt-5">
+			{{ form(form) }}
+		</div>
 	</div>
 {% endblock %}
