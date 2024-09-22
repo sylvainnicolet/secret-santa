@@ -1,0 +1,38 @@
+<header>
+	<nav class="navbar navbar-light navbar-expand-lg bg-white py-2 shadow-sm">
+		
+		<!-- Burger menu -->
+		<div class="container-fluid d-lg-none d-flex px-3 justify-content-between">
+			<!-- Burger menu -->
+			<a href="#mobile-menu" class="fs-3 text-white">
+				<i class="fa-regular fa-bars"></i>
+			</a>
+			
+			<!-- Logo -->
+			<a class="navbar-brand" href="/">
+				<h4>Secret Santa</h4>
+			</a>
+		</div>
+		
+		<div class="container d-none d-lg-flex">
+			<!-- Logo -->
+			<a class="navbar-brand" href="/">
+				<h4>Secret Santa</h4>
+			</a>
+			
+			<div class="collapse navbar-collapse">
+				<!-- Left side -->
+				<div class="navbar-nav">
+					<a class="nav-link active" href="#">Présentation</a>
+					<a class="nav-link" href="{{ path('homepage') }}/#pricing">Prix</a>
+				</div>
+				
+				<!-- Right side -->
+				<div class="navbar-nav ms-auto">
+					<a class="nav-link" href="#">Se connecter</a>
+					<a class="nav-link" href="#">Demander un compte</a>
+				</div>
+			</div>
+		</div>
+	</nav>
+</header>
