@@ -3,18 +3,18 @@
 {% block title %}Accueil{% endblock %}
 
 {% block content %}
-	<section id="hero" class="py-5 bg-white">
+	<section id="hero" class="py-6 bg-white">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6">
-					<h1 class="mt-4">Secret Santa</h1>
+					<h1>Secret Santa</h1>
 					<p>L'application qui te permet de gérer les tirages au sort de Noël.</p>
 					<ul class="list-unstyled">
 						<li>🎁 Crée un groupe de participants</li>
 						<li>🎁 Personnalise les pages et les emails</li>
 						<li>🎁 Lance le tirage au sort</li>
 					</ul>
-					<a href="{{ path('user_request') }}" class="btn btn-primary btn-lg mt-4">Commencer maintenant</a>
+					<a href="{{ path('request_account') }}" class="btn btn-primary btn-lg mt-4">Commencer maintenant</a>
 				</div>
 				<div class="col-lg-6">
 					<img src="{{ asset('images/santa_claus.webp') }}" alt="Secret Santa" class="img-fluid rounded" width="500">
@@ -23,11 +23,11 @@
 		</div>
 	</section>
 	
-	<section id="presentation" class="py-5 bg-light">
+	<section id="presentation" class="py-6 bg-light">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6">
-					<h2 class="mt-4">Présentation</h2>
+					<h2>Présentation</h2>
 					<p>Secret Santa est une application web qui te permet de gérer les tirages au sort de Noël. Crée un groupe de participants, personnalise les pages et les emails, et lance le tirage au sort. L'application se charge du reste, tu n'as plus qu'à profiter de Noël ! 🎅🎄</p>
 				</div>
 				<div class="col-lg-6">
@@ -37,7 +37,7 @@
 		</div>
 	</section>
 	
-	<section id="pricing" class="py-5 bg-white">
+	<section id="pricing" class="py-6 bg-white">
 		<div class="container">
 			<h2>Prix</h2>
 			<div class="row justify-content-center mt-4">
@@ -46,7 +46,7 @@
 						<div class="card-body">
 							<h3 class="card-title">Prix unique</h3>
 							<p class="display-4 fw-semibold">15 CHF</p>
-							<p>Par Noël</p>
+							<p>Par Noël 🎄</p>
 							<hr>
 							<ul class="list-unstyled mb-4 text-start d-flex flex-column gap-2">
 								<li>📋 Création d'un compte</li>
@@ -54,7 +54,7 @@
 								<li>🎨 Personnalisation des pages et des emails</li>
 								<li>🛠 Support complet par WhatsApp</li>
 							</ul>
-							<a href="{{ path('user_request') }}" class="btn btn-primary btn-lg">Commencer maintenant</a>
+							<a href="{{ path('request_account') }}" class="btn btn-primary btn-lg">Commencer maintenant</a>
 						</div>
 					</div>
 				</div>

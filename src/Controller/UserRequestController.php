@@ -16,7 +16,7 @@ class UserRequestController extends AbstractController
     {
     }
 
-    #[Route('/user-request', name: 'user_request')]
+    #[Route('/request-account', name: 'request_account')]
     public function index(Request $request): Response
     {
         $user = new User();

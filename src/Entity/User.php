@@ -56,6 +56,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $plainPassword = null;
 
+    #[ORM\OneToOne(mappedBy: 'user', cascade: ['persist', 'remove'])]
+    private ?Event $event = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -206,5 +209,27 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function isAdmin(): bool
     {
         return in_array(self::ROLE_ADMIN, $this->getRoles(), true);
+    }
+
+    public function getEvent(): ?Event
+    {
+        return $this->event;
+    }
+
+    public function setEvent(?Event $event): static
+    {
+        // unset the owning side of the relation if necessary
+        if (null === $event && null !== $this->event) {
+            $this->event->setUser(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if (null !== $event && $event->getUser() !== $this) {
+            $event->setUser($this);
+        }
+
+        $this->event = $event;
+
+        return $this;
     }
 }

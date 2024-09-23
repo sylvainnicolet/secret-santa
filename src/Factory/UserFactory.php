@@ -2,6 +2,7 @@
 
 namespace App\Factory;
 
+use App\Entity\Event;
 use App\Entity\User;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -31,6 +32,15 @@ class UserFactory
         $user->setEnable(true);
 
         $this->em->persist($user);
+
+        $event = $user->getEvent();
+        if (!$event) {
+            $event = new Event();
+            $event->setUser($user);
+
+            $this->em->persist($event);
+        }
+
         $this->em->flush();
 
         return $user;
